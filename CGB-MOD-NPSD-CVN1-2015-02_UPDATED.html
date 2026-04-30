@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CGB-MOD/NPSD/CVN1/2015-02 — Commonwealth Nuclear Carrier Programme — Final Concept</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --navy:#0b1c36;
+  --navy-mid:#1a3358;
+  --navy-light:#2c4a72;
+  --blue-muted:#4a6fa5;
+  --blue-pale:#8fafd4;
+  --gold:#b89a3e;
+  --gold-light:#d4b96a;
+  --rule:#b0bfcf;
+  --rule-light:#d6dfe8;
+  --bg:#f0f2f5;
+  --bg-white:#ffffff;
+  --bg-section:#eef1f5;
+  --bg-dark:#e6eaf0;
+  --text-primary:#0b1c36;
+  --text-body:#1a2637;
+  --text-muted:#4a5a6b;
+  --text-label:#6a7f94;
+  --red-flag:#7a1414;
+  --green-final:#1a4a2a;
+  --blueprint-bg:#070f1e;
+  --blueprint-line:#3a8eff;
+  --blueprint-dim:#88b8ff;
+  --blueprint-label:#b8d4ff;
+  --blueprint-bright:#ffffff;
+}
+body{
+  font-family:'IBM Plex Sans',sans-serif;
+  background:var(--bg);
+  color:var(--text-body);
+  font-size:9.5pt;
+  line-height:1.55;
+}
+.page{
+  width:210mm;
+  min-height:297mm;
+  margin:0 auto 8mm auto;
+  background:var(--bg-white);
+  border:1px solid var(--rule);
+  box-shadow:0 2px 12px rgba(0,0,0,0.13);
+  position:relative;
+  overflow:hidden;
+}
+.page-inner{padding:20mm 22mm 18mm 22mm;}
+.cover-page .page-inner{
+  padding:0;
+  display:flex;
+  flex-direction:column;
+  min-height:297mm;
+}
+
+/* ─── COVER HEADER BAND ─── */
+.cover-header-stripe{
+  background:var(--navy);
+  padding:6mm 10mm 5mm 10mm;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  border-bottom:3px solid var(--gold);
+}
+.cover-header-stripe .org-block .org-line1{
+  font-size:10.5pt;font-weight:700;color:#ffffff;
+  letter-spacing:0.06em;text-transform:uppercase;
+}
+.cover-header-stripe .org-block .org-line2{
+  font-size:9pt;font-weight:500;color:var(--blue-pale);
+  letter-spacing:0.04em;text-transform:uppercase;margin-top:1.5mm;
+}
+.cover-header-stripe .org-block .org-line3{
+  font-size:8pt;font-weight:400;color:#8fafd4aa;
+  letter-spacing:0.02em;margin-top:0.8mm;
+}
+.crest-box{
+  width:24mm;height:24mm;border:1.5px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  background:rgba(184,154,62,0.07);
+}
+.classification-stripe{
+  background:var(--red-flag);
+  text-align:center;padding:2mm 0;
+  font-size:8pt;font-weight:700;letter-spacing:0.22em;
+  color:#ffffff;font-family:'IBM Plex Mono',monospace;
+  text-transform:uppercase;
+  border-bottom:2px solid #5a0d0d;
+}
+/* FINAL status stripe */
+.final-status-stripe{
+  background:var(--green-final);
+  text-align:center;padding:1.5mm 0;
+  font-size:7.5pt;font-weight:700;letter-spacing:0.18em;
+  color:#a8e6be;font-family:'IBM Plex Mono',monospace;
+  text-transform:uppercase;
+  border-bottom:1px solid #0d2e18;
+}
+
+/* ─── COVER MAIN ─── */
+.cover-main{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:8mm 18mm 0 18mm;
+}
+.programme-eyebrow{
+  font-size:7pt;font-weight:600;color:var(--blue-muted);
+  letter-spacing:0.2em;text-transform:uppercase;margin-bottom:3.5mm;
+}
+.programme-title{
+  font-size:22pt;font-weight:700;color:var(--navy);
+  letter-spacing:0.04em;text-transform:uppercase;
+  text-align:center;line-height:1.15;
+  border-top:2.5px solid var(--navy);
+  border-bottom:2.5px solid var(--navy);
+  padding:4mm 0;width:100%;
+}
+.programme-subtitle{
+  font-size:9.5pt;font-weight:400;color:var(--navy-mid);
+  letter-spacing:0.04em;text-transform:uppercase;
+  text-align:center;margin-top:3mm;
+}
+.issue-badge{
+  display:inline-flex;gap:6mm;align-items:center;
+  border:1.5px solid var(--gold);padding:1.5mm 5mm;
+  margin-top:3.5mm;background:rgba(184,154,62,0.06);
+}
+.issue-badge span{font-size:8pt;font-weight:600;color:var(--gold);
+  font-family:'IBM Plex Mono',monospace;letter-spacing:0.1em;}
+.issue-badge .sep{color:var(--rule);font-weight:300;}
+
+.cover-meta-row{
+  width:100%;border-top:1px solid var(--rule-light);
+  border-bottom:1px solid var(--rule-light);
+  padding:3mm 0;display:grid;grid-template-columns:repeat(5,1fr);
+  margin:4mm 0;
+}
+.cover-meta-item{text-align:center;padding:0 2mm;}
+.cover-meta-item+.cover-meta-item{border-left:1px solid var(--rule-light);}
+.cmi-label{font-size:6.5pt;letter-spacing:0.12em;color:var(--text-label);text-transform:uppercase;margin-bottom:1mm;}
+.cmi-val{font-size:8.5pt;font-weight:600;color:var(--navy);font-family:'IBM Plex Mono',monospace;}
+
+/* ─── BLUEPRINT PANEL ─── */
+.blueprint-panel{
+  width:100%;
+  background:var(--blueprint-bg);
+  border:1.5px solid var(--blueprint-line);
+  margin:3mm 0;
+  position:relative;
+  overflow:hidden;
+}
+.blueprint-panel svg{display:block;width:100%;}
+.bp-fig-label{
+  font-size:6pt;color:var(--blueprint-label);
+  text-align:center;letter-spacing:0.09em;
+  font-family:'IBM Plex Mono',monospace;
+  background:var(--blueprint-bg);
+  padding:1.5mm 0;
+  border-top:1px solid #1a3060;
+}
+
+/* ─── COVER BOTTOM ─── */
+.cover-bottom{
+  margin-top:auto;padding:4mm 18mm;
+  border-top:2px solid var(--navy);
+  display:flex;justify-content:space-between;align-items:flex-end;
+  background:var(--bg-section);
+}
+.cover-bottom-meta{font-size:7pt;color:var(--text-muted);line-height:1.8;font-family:'IBM Plex Mono',monospace;}
+.cover-bottom-right{font-size:7pt;color:var(--text-muted);text-align:right;line-height:1.8;font-family:'IBM Plex Mono',monospace;}
+
+/* ─── INNER PAGES ─── */
+.header-band{
+  background:var(--navy);
+  height:5px;width:100%;
+  position:absolute;top:0;left:0;right:0;
+}
+.gold-band{
+  background:var(--gold);
+  height:2px;width:100%;
+  position:absolute;top:5px;left:0;right:0;
+}
+.doc-page-header{
+  display:flex;justify-content:space-between;align-items:center;
+  padding-bottom:3mm;border-bottom:1px solid var(--rule);
+  margin-top:5mm;margin-bottom:5mm;
+  font-size:7.5pt;font-family:'IBM Plex Mono',monospace;color:var(--text-muted);
+}
+.hdr-ref{color:var(--text-muted);}
+.hdr-title{font-weight:600;color:var(--navy);}
+.hdr-cls{color:var(--red-flag);font-weight:600;}
+.hdr-final{color:var(--green-final);font-weight:700;letter-spacing:0.08em;}
+
+.section-title{
+  font-size:10.5pt;font-weight:700;color:var(--navy);
+  letter-spacing:0.06em;text-transform:uppercase;
+  margin:5mm 0 2.5mm 0;
+  padding-bottom:1.5mm;
+  border-bottom:2px solid var(--navy);
+  display:flex;align-items:center;gap:3mm;
+}
+.section-title::before{
+  content:'';display:block;width:4mm;height:4mm;
+  background:var(--gold);flex-shrink:0;
+}
+.sub-title{font-size:9.5pt;font-weight:600;color:var(--navy-mid);letter-spacing:0.02em;margin:4mm 0 2mm 0;}
+.body-text{font-size:9pt;color:var(--text-body);margin:0 0 2.5mm 0;line-height:1.6;}
+
+.note-box{
+  background:linear-gradient(to right,rgba(11,28,54,0.05),rgba(11,28,54,0.02));
+  border-left:3px solid var(--navy-mid);
+  padding:3mm 4mm;margin:3mm 0;font-size:8.5pt;color:var(--text-body);
+}
+.warn-box{
+  background:linear-gradient(to right,rgba(122,20,20,0.07),rgba(122,20,20,0.02));
+  border-left:3px solid var(--red-flag);
+  padding:3mm 4mm;margin:3mm 0;font-size:8.5pt;color:var(--text-body);
+}
+.final-box{
+  background:linear-gradient(to right,rgba(26,74,42,0.08),rgba(26,74,42,0.02));
+  border-left:3px solid var(--green-final);
+  padding:3mm 4mm;margin:3mm 0;font-size:8.5pt;color:var(--text-body);
+}
+
+.spec-table{width:100%;border-collapse:collapse;margin:2mm 0 3mm 0;font-size:8.5pt;}
+.spec-table th{
+  background:var(--navy);color:#fff;font-size:7.5pt;font-weight:600;
+  letter-spacing:0.08em;text-transform:uppercase;
+  padding:2mm 3mm;border:1px solid var(--rule);text-align:left;
+}
+.spec-table th.gold-hdr{background:var(--gold);color:var(--navy);}
+.spec-table td{border:1px solid var(--rule);padding:2mm 3mm;vertical-align:top;}
+.label-col{font-weight:600;color:var(--navy-mid);background:var(--bg-section);width:38%;font-size:8pt;}
+.value-col{color:var(--text-body);}
+.value-col .confirmed{color:var(--green-final);font-weight:600;}
+.value-col .cost-note{color:var(--gold);font-weight:600;font-family:'IBM Plex Mono',monospace;}
+
+.loadout-grid{display:grid;grid-template-columns:1fr 1fr;gap:3mm;margin:3mm 0;}
+.loadout-cell{border:1px solid var(--rule);padding:3mm;background:var(--bg-section);border-top:2px solid var(--navy-mid);}
+.lc-label{font-size:7pt;font-weight:700;color:var(--navy);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:1mm;}
+.lc-val{font-size:10pt;font-weight:700;color:var(--navy-mid);font-family:'IBM Plex Mono',monospace;}
+.lc-desc{font-size:7.5pt;color:var(--text-muted);margin-top:1mm;}
+
+.doc-footer{
+  display:flex;justify-content:space-between;
+  font-size:7pt;color:var(--text-muted);
+  font-family:'IBM Plex Mono',monospace;
+  border-top:1px solid var(--rule-light);
+  padding-top:2mm;margin-top:6mm;
+}
+.toc-entry{
+  display:flex;gap:3mm;align-items:baseline;
+  padding:1.5mm 0;border-bottom:1px dotted var(--rule-light);font-size:9pt;
+}
+.toc-entry:hover{background:var(--bg-section);}
+.toc-num{font-family:'IBM Plex Mono',monospace;font-weight:700;color:var(--navy);width:8mm;flex-shrink:0;}
+.toc-name{flex:1;color:var(--text-body);}
+.toc-page{font-family:'IBM Plex Mono',monospace;color:var(--text-muted);width:10mm;text-align:right;}
+.toc-new{font-size:6.5pt;font-weight:700;color:var(--green-final);letter-spacing:0.08em;margin-left:3mm;}
+
+.roadmap-table{width:100%;border-collapse:collapse;font-size:8.5pt;margin:3mm 0;}
+.roadmap-table th{background:var(--navy);color:#fff;font-size:7.5pt;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:2mm 3mm;border:1px solid var(--rule);text-align:left;}
+.roadmap-table td{border:1px solid var(--rule);padding:2.5mm 3mm;vertical-align:top;font-size:8pt;}
+.phase-col{font-weight:700;color:var(--navy);background:var(--bg-section);width:17%;}
+.roadmap-table .mono{font-family:'IBM Plex Mono',monospace;font-size:7.5pt;color:var(--text-muted);}
+.phase-done{background:#e8f5ed!important;color:var(--green-final)!important;}
+
+.amendment-table{width:100%;border-collapse:collapse;margin:2mm 0 4mm 0;}
+.amendment-table th{background:var(--navy);color:#fff;font-size:7.5pt;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:2mm 3mm;border:1px solid var(--rule);}
+.amendment-table td{border:1px solid var(--rule);padding:2mm 3mm;font-size:8pt;}
+.amendment-table .issue-current td{background:#e8f5ed;font-weight:600;}
+
+.distribution-entry{font-size:8.5pt;padding:1.5mm 0;border-bottom:1px dotted var(--rule-light);display:flex;gap:6mm;}
+.de-role{color:var(--text-body);flex:1;}
+.de-copies{color:var(--text-muted);font-family:'IBM Plex Mono',monospace;width:16mm;text-align:right;}
+
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:6mm;margin:3mm 0 5mm 0;}
+ul.body-list{margin:1mm 0 3mm 5mm;}
+ul.body-list li{font-size:9pt;color:var(--text-body);padding:0.5mm 0;}
+ul.body-list li::marker{color:var(--gold);}
+
+.classified-footer-strip{
+  background:var(--red-flag);color:#fff;
+  font-size:7pt;font-weight:700;letter-spacing:0.14em;
+  text-transform:uppercase;text-align:center;
+  padding:1.5mm 0;
+  position:absolute;bottom:0;left:0;right:0;
+}
+
+.cost-table{width:100%;border-collapse:collapse;margin:2mm 0 3mm 0;font-size:8.5pt;}
+.cost-table th{background:var(--navy-mid);color:#fff;font-size:7.5pt;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;padding:2mm 3mm;border:1px solid var(--rule);text-align:left;}
+.cost-table td{border:1px solid var(--rule);padding:2mm 3mm;vertical-align:top;}
+.cost-table .total-row td{background:var(--navy);color:#fff;font-weight:700;font-family:'IBM Plex Mono',monospace;}
+.cost-table .subtotal-row td{background:var(--bg-dark);font-weight:600;color:var(--navy);}
+
+.sys-badge{
+  display:inline-block;font-size:7pt;font-weight:700;
+  letter-spacing:0.08em;padding:0.5mm 2mm;
+  border:1px solid;margin:0 1mm 1mm 0;
+  font-family:'IBM Plex Mono',monospace;
+}
+.badge-confirmed{border-color:var(--green-final);color:var(--green-final);background:rgba(26,74,42,0.06);}
+.badge-selected{border-color:var(--blue-muted);color:var(--blue-muted);background:rgba(74,111,165,0.06);}
+.badge-growth{border-color:var(--gold);color:var(--gold);background:rgba(184,154,62,0.06);}
+
+.col-block{}
+.margin-mark{font-size:7pt;color:var(--text-label);font-family:'IBM Plex Mono',monospace;}
+
+/* Print page breaks */
+@media print{
+  .page{page-break-after:always;box-shadow:none;border:none;margin:0;}
+  body{background:#fff;}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════ COVER ═══════════════════════════════════ -->
+<div class="page cover-page">
+
+<div class="cover-header-stripe">
+  <div style="display:flex;gap:5mm;align-items:center;">
+    <div class="crest-box">
+      <svg viewBox="0 0 60 60" width="50" height="50" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="2" width="56" height="56" fill="none" stroke="#b89a3e" stroke-width="1.5"/>
+        <rect x="7" y="7" width="46" height="46" fill="none" stroke="#b89a3e" stroke-width="0.6" opacity="0.5"/>
+        <line x1="30" y1="5" x2="30" y2="55" stroke="#b89a3e" stroke-width="1.2"/>
+        <line x1="5" y1="30" x2="55" y2="30" stroke="#b89a3e" stroke-width="1.2"/>
+        <line x1="5" y1="5" x2="55" y2="55" stroke="#b89a3e" stroke-width="0.6" opacity="0.6"/>
+        <line x1="55" y1="5" x2="5" y2="55" stroke="#b89a3e" stroke-width="0.6" opacity="0.6"/>
+        <circle cx="30" cy="30" r="9" fill="none" stroke="#b89a3e" stroke-width="1.5"/>
+        <circle cx="30" cy="30" r="3" fill="#b89a3e"/>
+        <polygon points="30,14 33,24 30,22 27,24" fill="#b89a3e"/>
+        <polygon points="30,46 33,36 30,38 27,36" fill="#b89a3e"/>
+        <polygon points="14,30 24,27 22,30 24,33" fill="#b89a3e"/>
+        <polygon points="46,30 36,27 38,30 36,33" fill="#b89a3e"/>
+      </svg>
+    </div>
+    <div class="org-block">
+      <div class="org-line1">Commonwealth of Great Britain</div>
+      <div class="org-line2">Ministry of Defence</div>
+      <div class="org-line3">Naval Procurement &amp; Systems Directorate — Nuclear Carrier Strike Programme</div>
+    </div>
+  </div>
+  <div style="text-align:right;">
+    <div style="font-size:10pt;font-weight:700;color:var(--gold);font-family:'IBM Plex Mono',monospace;letter-spacing:0.12em;">CGB-MOD/NPSD/CVN1/2015-02</div>
+    <div style="font-size:8pt;color:#8fafd4;font-family:'IBM Plex Mono',monospace;margin-top:2mm;">Issue: 2.0 — FINAL CONCEPT</div>
+    <div style="font-size:7.5pt;color:#6a8faa;font-family:'IBM Plex Mono',monospace;margin-top:1mm;">Date: 14 March 2015</div>
+  </div>
+</div>
+
+<div class="classification-stripe">SECRET — NUCLEAR SENSITIVE — CGB-MOD/NPSD/CVN1/2015-02</div>
+<div class="final-status-stripe">▸▸▸ &nbsp; APPROVED FINAL CONCEPT &nbsp;—&nbsp; AUTHORISED FOR MAIN GATE &nbsp; ◂◂◂</div>
+
+<div class="cover-main">
+  <div class="programme-eyebrow">Naval Procurement &amp; Systems Directorate — Nuclear Carrier Strike Programme</div>
+  <div class="programme-title">Commonwealth Nuclear<br>Carrier Programme</div>
+  <div class="programme-subtitle">CVN-1 &ldquo;Sovereign&rdquo; Class &mdash; Final Concept Design &amp; Requirements Baseline</div>
+
+  <div class="issue-badge">
+    <span>ISS 2.0</span><span class="sep">|</span>
+    <span>14 MAR 2015</span><span class="sep">|</span>
+    <span>FINAL CONCEPT</span><span class="sep">|</span>
+    <span>MAIN GATE SUBMISSION</span>
+  </div>
+
+  <div class="cover-meta-row">
+    <div class="cover-meta-item"><div class="cmi-label">Document Class</div><div class="cmi-val">FINAL CONCEPT</div></div>
+    <div class="cover-meta-item"><div class="cmi-label">Programme Stage</div><div class="cmi-val">MAIN GATE</div></div>
+    <div class="cover-meta-item"><div class="cmi-label">Classification</div><div class="cmi-val" style="color:var(--red-flag);">SECRET–NUC</div></div>
+    <div class="cover-meta-item"><div class="cmi-label">Authorised By</div><div class="cmi-val">FSL / SofS(D)</div></div>
+    <div class="cover-meta-item"><div class="cmi-label">IOC Target</div><div class="cmi-val">Q4 / 2025</div></div>
+  </div>
+
+  <!-- ══════════ REALISTIC CARRIER IMAGE PANEL — REPLACES ORIGINAL SVG BLUEPRINT ══════════ -->
+  <div class="blueprint-panel carrier-image-panel">
+    <div class="carrier-photo-wrap">
+      <img
+        class="carrier-photo"
+        src="https://commons.wikimedia.org/wiki/Special:FilePath/USS%20Gerald%20R.%20Ford%20%28CVN-78%29%20underway%20in%20the%20Atlantic%20Ocean%20on%209%20October%202022%20%28221009-N-TL968-1248%29.JPG"
+        alt="Modern nuclear aircraft carrier underway at sea"
+      />
+      <div class="carrier-photo-overlay">
+        <div class="carrier-photo-tag">FINAL CONCEPT VISUAL REFERENCE</div>
+        <div class="carrier-photo-title">CVN-1 &ldquo;Sovereign&rdquo; Class — Nuclear Carrier Strike Platform</div>
+        <div class="carrier-photo-meta">Representative image: modern nuclear aircraft carrier underway — flight deck, island, escort integration and sea-state reference</div>
+      </div>
+      <div class="carrier-photo-grid"></div>
+    </div>
+    <div class="bp-fig-label">FIG. 0.1 — COMMONWEALTH CVN &ldquo;SOVEREIGN&rdquo; CLASS — REPRESENTATIVE OPERATIONAL VISUAL REFERENCE — FINAL CONCEPT — CGB-MOD/NPSD/CVN1/VIS-001 REV C03 — MAR 2015</div>
+  </div>
+
+  <style>
+  .carrier-image-panel{
+    border:1.5px solid var(--blueprint-line);
+    background:#070f1e;
+  }
+  .carrier-photo-wrap{
+    position:relative;
+    width:100%;
+    height:118mm;
+    overflow:hidden;
+    background:#070f1e;
+  }
+  .carrier-photo{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    filter:contrast(1.04) saturate(0.9) brightness(0.82);
+  }
+  .carrier-photo-wrap::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:
+      linear-gradient(180deg,rgba(7,15,30,0.18) 0%,rgba(7,15,30,0.05) 42%,rgba(7,15,30,0.58) 100%),
+      linear-gradient(90deg,rgba(7,15,30,0.58) 0%,rgba(7,15,30,0.06) 50%,rgba(7,15,30,0.35) 100%);
+    z-index:1;
+    pointer-events:none;
+  }
+  .carrier-photo-grid{
+    position:absolute;
+    inset:0;
+    z-index:2;
+    pointer-events:none;
+    opacity:0.18;
+    background-image:
+      linear-gradient(rgba(58,142,255,0.35) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(58,142,255,0.35) 1px, transparent 1px);
+    background-size:20px 20px;
+    mix-blend-mode:screen;
+  }
+  .carrier-photo-overlay{
+    position:absolute;
+    left:7mm;
+    right:7mm;
+    bottom:7mm;
+    z-index:3;
+    border-left:3px solid var(--gold);
+    background:rgba(7,15,30,0.72);
+    padding:4mm 5mm;
+    box-shadow:0 0 18px rgba(0,0,0,0.35);
+  }
+  .carrier-photo-tag{
+    font-size:6.5pt;
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:700;
+    letter-spacing:0.16em;
+    color:var(--gold-light);
+    text-transform:uppercase;
+    margin-bottom:1.5mm;
+  }
+  .carrier-photo-title{
+    font-size:13pt;
+    line-height:1.15;
+    font-weight:700;
+    color:#ffffff;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+  }
+  .carrier-photo-meta{
+    margin-top:1.5mm;
+    font-size:7.5pt;
+    color:var(--blue-pale);
+    font-family:'IBM Plex Mono',monospace;
+    letter-spacing:0.04em;
+  }
+  </style>
+
+  <div style="height:2mm;"></div>
+</div><!-- /cover-main -->
+
+<div class="cover-bottom">
+  <div class="cover-bottom-meta">
+    CGB-MOD/NPSD/CVN1/2015-02 — Issue 2.0 — 14 March 2015<br>
+    &copy; Commonwealth of Great Britain, Ministry of Defence, 2015<br>
+    SECRET — NUCLEAR SENSITIVE — Not to be reproduced without written authority of NPSD
+  </div>
+  <div class="cover-bottom-right">
+    SECRET — NUC-SENS<br>
+    Page 1 of 14<br>
+    Protective Marking: S-NPSD-NUC<br>
+    FINAL CONCEPT — MAIN GATE SUBMISSION
+  </div>
+</div>
+
+<div class="classified-footer-strip">Secret — Nuclear Sensitive — CGB-MOD/NPSD/CVN1/2015-02 — Final Concept</div>
+</div>
+
+<!-- ═══════════════════════ DOCUMENT CONTROL ════════════════════════ -->
+<div class="page">
+<div class="header-band"></div>
+<div class="gold-band"></div>
+<div class="page-inner">
+<div class="doc-page-header">
+  <span class="hdr-ref">CGB-MOD/NPSD/CVN1/2015-02 — Iss.2.0</span>
+  <span class="hdr-title">Commonwealth Nuclear Carrier Programme — CVN-1 &ldquo;Sovereign&rdquo; Class</span>
+  <span class="hdr-final">FINAL CONCEPT</span>
+</div>
+
+<h1 class="section-title">Document Control</h1>
+
+<h2 class="sub-title">Amendment Record</h2>
+<table class="amendment-table">
+<tr><th>Issue</th><th>Date</th><th>Author</th><th>Approved By</th><th>Description of Change</th></tr>
+<tr><td>0.1</td><td>14 Jun 2013</td><td>B. Marsh, DE&amp;S</td><td>—</td><td>Initial draft circulated internally for comment</td></tr>
+<tr><td>0.2</td><td>09 Aug 2013</td><td>B. Marsh, DE&amp;S</td><td>—</td><td>Revised following Naval Staff comments; propulsion and nuclear plant sections updated</td></tr>
+<tr><td>0.3</td><td>02 Oct 2013</td><td>T. Reeve, NPSD</td><td>—</td><td>Air group and combat systems sections expanded; EMALS data incorporated</td></tr>
+<tr><td>1.0</td><td>22 Nov 2013</td><td>T. Reeve, NPSD</td><td>DNSR/1</td><td>Issue 1.0 — Initial Procurement Dossier. Approved for IAB distribution</td></tr>
+<tr><td>1.1</td><td>18 Mar 2014</td><td>T. Reeve, NPSD</td><td>DEC(CV)</td><td>Updated following Assessment Phase progress; hull form revised to 347 m; reactor selection to A4W derivative confirmed</td></tr>
+<tr><td>1.2</td><td>07 Jul 2014</td><td>J. Hargreaves, NPSD</td><td>DEC(CV)</td><td>Full Business Case preliminary inputs; cost estimates updated; VLS loadout increased; dual-island configuration confirmed</td></tr>
+<tr><td>1.3</td><td>12 Nov 2014</td><td>J. Hargreaves / T. Reeve</td><td>DNSR/1</td><td>Combat systems section updated; DEW provisions formalised; UAS section expanded; mission bay specification confirmed; classification raised to SECRET</td></tr>
+<tr class="issue-current"><td>2.0</td><td>14 Mar 2015</td><td>T. Reeve, NPSD</td><td>FSL / SofS(D)</td><td><strong>FINAL CONCEPT — ISSUE 2.0.</strong> All sections updated to final baseline. Specifications confirmed. Full Business Case approved. Main Gate submission package. Classification: SECRET — NUC-SENS.</td></tr>
+</table>
+
+<h2 class="sub-title">Table of Contents</h2>
+<div class="toc-entry"><span class="toc-num">1</span><span class="toc-name">Executive Summary</span><span class="toc-page">3</span></div>
+<div class="toc-entry"><span class="toc-num">2</span><span class="toc-name">Strategic Requirement</span><span class="toc-page">3</span></div>
+<div class="toc-entry"><span class="toc-num">3</span><span class="toc-name">Platform Overview &amp; Class Name</span><span class="toc-page">4</span></div>
+<div class="toc-entry"><span class="toc-num">4</span><span class="toc-name">Core Specifications — Final Baseline</span><span class="toc-page">4</span></div>
+<div class="toc-entry"><span class="toc-num">5</span><span class="toc-name">Nuclear Propulsion Plant <span class="toc-new">CONFIRMED</span></span><span class="toc-page">5</span></div>
+<div class="toc-entry"><span class="toc-num">6</span><span class="toc-name">Aviation Systems, EMALS &amp; Air Wing</span><span class="toc-page">6</span></div>
+<div class="toc-entry"><span class="toc-num">7</span><span class="toc-name">Combat Systems &amp; Self-Defence <span class="toc-new">ENHANCED</span></span><span class="toc-page">7</span></div>
+<div class="toc-entry"><span class="toc-num">8</span><span class="toc-name">Sensors &amp; Electronic Warfare</span><span class="toc-page">8</span></div>
+<div class="toc-entry"><span class="toc-num">9</span><span class="toc-name">Unmanned Systems Integration <span class="toc-new">EXPANDED</span></span><span class="toc-page">9</span></div>
+<div class="toc-entry"><span class="toc-num">10</span><span class="toc-name">Digital &amp; Network Architecture</span><span class="toc-page">9</span></div>
+<div class="toc-entry"><span class="toc-num">11</span><span class="toc-name">Whole-Life Cost Estimate &amp; Value Engineering <span class="toc-new">NEW</span></span><span class="toc-page">10</span></div>
+<div class="toc-entry"><span class="toc-num">12</span><span class="toc-name">Capability Roadmap — Updated</span><span class="toc-page">12</span></div>
+<div class="toc-entry"><span class="toc-num">A</span><span class="toc-name">Glossary of Terms and Abbreviations</span><span class="toc-page">14</span></div>
+
+<div class="final-box" style="margin-top:4mm;">
+  <strong>Final Concept Status:</strong> This document supersedes all previous issues of CGB-MOD/NPSD/CVN1. All specifications herein represent the confirmed final concept baseline authorised by First Sea Lord and Secretary of State for Defence on 12 March 2015. The platform is designated CVN-1 of the <em>Sovereign</em> class. The document constitutes the primary reference for the Main Gate submission to the Investment Approvals Board and Treasury. Sections 5, 7, and 11 contain material subject to additional SECRET–NUC-SENS access controls.
+</div>
+
+<div class="doc-footer">
+  <span>CGB-MOD/NPSD/CVN1/2015-02 — Iss.2.0 — 14 March 2015</span>
+  <span>Secret — Nuclear Sensitive</span>
+  <span>Page 2</span>
+</div>
+</div>
+<div class="classified-footer-strip">Secret — Nuclear Sensitive — CGB-MOD/NPSD/CVN1/2015-02 — Final Concept</div>
+</div>
+
+<!-- ═══════════════════════ SECTIONS 1 & 2 ════════════════════════ -->
+<div class="page">
+<div class="header-band"></div>
+<div class="gold-band"></div>
+<div class="page-inner">
+<div class="doc-page-header">
+  <span class="hdr-ref">CGB-MOD/NPSD/CVN1/2015-02 — Iss.2.0</span>
+  <span class="hdr-title">CVN-1 &ldquo;Sovereign&rdquo; Class — Final Concept</span>
+  <span class="hdr-final">SECRET — NUC-SENS</span>
+</div>
+
+<h1 class="section-title">Section 1 — Executive Summary</h1>
+<p class="body-text">This document is the Final Concept Design and Requirements Baseline for CVN-1, the lead ship of the <em>Sovereign</em> class Commonwealth Nuclear Carrier. It is presented to the Investment Approvals Board as the Main Gate submission supporting the full business case for programme approval. The document supersedes Issue 1.0 (CGB-MOD/NPSD/CVN1/2013-01) in its entirety and incorporates all decisions taken during the Assessment Phase.</p>
+<p class="body-text">CVN-1 is a new-design nuclear-powered aircraft carrier of 105,000 tonnes full-load displacement, 347 metres overall length, configured for conventional take-off and arrested landing operations with four EMALS catapults, three Advanced Arresting Gear wires, and a full-length angled deck. The propulsion plant comprises two A4W-derived pressurised water reactors delivering 280,000 shaft-horsepower across four shafts, with surplus electrical generation of 250 MW for ship's systems, future directed energy weapons, and the EMALS energy storage array. The platform is designed for a minimum fifty-year service life without hull replacement, with two planned refuelling cycles and a single mid-life modernisation.</p>
+<p class="body-text">The normal air wing of 95 aircraft — including 36 fifth-generation strike fighters, 6 AEW&amp;C aircraft, 12 electronic attack and support aircraft, 14 maritime patrol and ASW rotary wing, and up to 18 unmanned carrier-launched aircraft at Full Operating Capability — makes CVN-1 the most capable carrier operated by any Commonwealth or allied navy outside the United States Navy. The ship is assessed as capable of independent, sustained high-intensity carrier strike operations against the most demanding threat environments in the planning horizon, including against adversaries with advanced integrated air defence and anti-ship missile systems.</p>
+
+<div class="final-box">
+  <strong>Cost Summary (Outturn, Including Contingency):</strong> The confirmed whole-programme cost to IOC is estimated at £14.8 billion (2015 prices, including 15% contingency). The platform unit cost is £8.9 billion. This compares favourably with the US Navy Gerald R. Ford class at an equivalent-period unit cost of approximately £10.4 billion equivalent, attributable primarily to the use of proven A4W reactor technology, adapted UK industrial infrastructure, and a deliberate value engineering programme conducted during Assessment Phase. Full cost breakdown is provided at Section 11.
+</div>
+
+<h1 class="section-title" style="margin-top:5mm;">Section 2 — Strategic Requirement</h1>
+
+<h2 class="sub-title">2.1 Confirmed Capability Gaps</h2>
+<p class="body-text">The Assessment Phase has confirmed and quantified the capability gaps identified in the Initial Procurement Dossier. Independent analysis by the Chief Scientific Adviser (Navy) and the Defence Intelligence Community has assessed the following deficiencies as critical to the Commonwealth's ability to independently conduct carrier strike operations across the planning horizon:</p>
+<ul class="body-list">
+  <li><strong>Nuclear endurance:</strong> Threat analysis confirms that adversary long-range anti-ship missile envelopes now constrain conventional carrier operational areas in two of the six priority operational theatres. Nuclear-powered sprint to favourable launch positions is the only operationally credible solution assessed.</li>
+  <li><strong>Aviation capacity:</strong> Assessment of the projected air threat in priority theatres requires concurrent fleet air defence, strike, suppression of enemy air defences, and maritime patrol tasking. Modelling confirms a minimum of 90 aircraft is required for sustained independent operations; current carriers are assessed at 40 aircraft maximum.</li>
+  <li><strong>Power generation:</strong> EMALS, Advanced Arresting Gear, next-generation AESA radar arrays, and the future DEW CIWS programme collectively require 180–220 MW of surplus electrical generation. This is irreconcilable with conventional propulsion at acceptable displacement.</li>
+  <li><strong>Survivability:</strong> Advanced hardening, redundant damage control systems, and the ability to sustain 28+ knots under nuclear power without generating the thermal and acoustic signature of a conventionally-powered ship at maximum speed represents a survivability margin unavailable in existing conventional designs.</li>
+</ul>
+
+<h2 class="sub-title">2.2 Strategic Policy Basis</h2>
+<p class="body-text">The CVN programme is validated by the Commonwealth Defence and Security Review (2014), which assessed nuclear carrier strike as a Tier 1 national capability commitment. The Review directed that the Commonwealth must be capable of conducting sovereign carrier strike operations globally, independent of host-nation basing or partner logistics, by 2026. CVN-1 is the sole programme assessed as meeting this requirement within the declared budget envelope. The programme has received cross-party parliamentary endorsement and is designated a protected programme within HM Treasury's capital investment framework.</p>
+
+<div class="doc-footer">
+  <span>CGB-MOD/NPSD/CVN1/2015-02 — Iss.2.0 — 14 March 2015</span>
+  <span>Secret — Nuclear Sensitive</span>
+  <span>Page 3</span>
+</div>
+</div>
+<div class="classified-footer-strip">Secret — Nuclear Sensitive — CGB-MOD/NPSD/CVN1/2015-02 — Final Concept</div>
+</div>
+
+<!-- ═══════════════════════ SECTIONS 3 & 4 ════════════════════════ -->
+<div class="page">
+<div class="header-band"></div>
+<div class="gold-band"></div>
+<div class="page-inner">
+<div class="doc-page-header">
+  <span class="hdr-ref">CGB-MOD/NPSD/CVN1/2015-02 — Iss.2.0</span>
+  <span class="hdr-title">CVN-1 &ldquo;Sovereign&rdquo; Class — Final Concept</span>
+  <span class="hdr-final">SECRET — NUC-SENS</span>
+</div>
+
+<h1 class="section-title">Section 3 — Platform Overview</h1>
+<p class="body-text">CVN-1 is designated the lead ship of the <em>Sovereign</em> class. The class name reflects the strategic significance of the platform as an instrument of independent Commonwealth power projection. The ship will be laid down at a consortium of three shipbuilding yards under a national industrial partnership arrangement, with final assembly at the designated assembly facility on the Clyde. The <em>Sovereign</em> class design is a new-design original Commonwealth hull, drawing on technical data exchange under the AUKUS and Five Power Defence Arrangement frameworks.</p>
+<p class="body-text">The design employs a twin-island configuration, separating navigation and air traffic control functions (forward island) from aviation command and combat direction functions (aft island). This arrangement, validated by assessment of the USN Gerald R. Ford class, reduces electromagnetic interference between the two island functions, improves sightlines for both bridge watch and aviation direction teams, and reduces the ship's radar cross-section contribution from superstructure compared to a single large island. The twin islands are connected by an enclosed weather-deck walkway at sponson level.</p>
+
+<h1 class="section-title" style="margin-top:4mm;">Section 4 — Core Specifications — Final Baseline</h1>
+
+<h2 class="sub-title">4.1 Platform Dimensions and Displacement</h2>
+<table class="spec-table">
+<tr><th colspan="2" class="gold-hdr">CVN-1 &ldquo;Sovereign&rdquo; Class — Final Confirmed Dimensions</th></tr>
+<tr><td class="label-col">Designation / Class Name</td><td class="value-col"><span class="confirmed">CVN-1, HMS Sovereign — Sovereign class</span></td></tr>
+<tr><td class="label-col">Length Overall (LOA)</td><td class="value-col"><span class="confirmed">347 m</span> (confirmed; hull form frozen)</td></tr>
+<tr><td class="label-col">Waterline Length (LWL)</td><td class="value-col">322 m</td></tr>
+<tr><td class="label-col">Flight Deck Width (max.)</td><td class="value-col"><span class="confirmed">83 m</span></td></tr>
+<tr><td class="label-col">Hull Beam (waterline)</td><td class="value-col">43 m (excluding sponsons)</td></tr>
+<tr><td class="label-col">Design Draught (full load)</td><td class="value-col">11.8 m; extreme draught 12.4 m (deep load trials)</td></tr>
+<tr><td class="label-col">Full Load Displacement</td><td class="value-col"><span class="confirmed">105,000 tonnes</span> (confirmed; limits driven by Panama Canal beam — excluded by design decision)</td></tr>
+<tr><td class="label-col">Light Ship Displacement</td><td class="value-col">Approximately 88,500 tonnes</td></tr>
+<tr><td class="label-col">Height: keel to masthead</td><td class="value-col">82 m (fore island mast); 76 m (aft island mast)</td></tr>
+<tr><td class="label-col">Hangar Deck Clear Height</td><td class="value-col"><span class="confirmed">8.0 m</span> (confirmed; permits operation of all current heavy rotary wing types with rotor head clearance)</td></tr>
+<tr><td class="label-col">Hangar Deck Area</td><td class="value-col">Approximately 22,500 m²; full-length, full-beam arrangement; 3 independent bay sections</td></tr>
+<tr><td class="label-col">Flight Deck Area</td><td class="value-col">Not less than 20,300 m²</td></tr>
+</table>
+
+<h2 class="sub-title">4.2 Manning and Complement</h2>
+<table class="spec-table">
+<tr><td class="label-col">Ship's Company (Non-Aviation)</td><td class="value-col">2,650 (automation-optimised; includes nuclear plant department of 420)</td></tr>
+<tr><td class="label-col">Air Wing Complement</td><td class="value-col">2,700 (aircrew, maintenance, weapons handling, UAS operators, deck crew)</td></tr>
+<tr><td class="label-col">Strike Group Staff / Flag</td><td class="value-col">Up to 600 (flag staff, intelligence, special operations, liaison)</td></tr>
+<tr><td class="label-col">Total Maximum Complement</td><td class="value-col"><span class="confirmed">5,950 personnel</span></td></tr>
+<tr><td class="label-col">Accommodation Standard</td><td class="value-col">CGB-MOD HB/2013/04; single cabin for all officers; twin-berth for senior ratings; 4-berth for junior ratings; all with en-suite or shared wash facilities per deck</td></tr>
+<tr><td class="label-col">Medical Facilities</td><td class="value-col">Role 3 medical facility; full surgical capability; 75-bed hospital; 2 operating theatres; dental; pharmacy</td></tr>
+</table>
+
+<h2 class="sub-title">4.3 Performance — Final Confirmed</h2>
+<table class="spec-table">
+<tr><td class="label-col">Maximum Speed (deep load)</td><td class="value-col"><span class="confirmed">31.5 knots</span> (confirmed by propulsion plant modelling)</td></tr>
+<tr><td class="label-col">Sustained Sprint Speed</td><td class="value-col">30 knots for periods not less than 72 hours continuous</td></tr>
+<tr><td class="label-col">Economical Cruise (nuclear)</td><td class="value-col">18–22 knots; essentially unlimited range constrained only by stores</td></tr>
+<tr><td class="label-col">Aviation Fuel Stowage</td><td class="value-col"><span class="confirmed">12,500,000 litres (F-34)</span> — sustains 120 sorties/day for 35 days without RAS</td></tr>
+<tr><td class="label-col">Ordnance Stowage</td><td class="value-col"><span class="confirmed">3,200 tonnes</span> of aviation ordnance; 18 magazines; automated weapons handling throughout</td></tr>
+<tr><td class="label-col">Provisions / Stores</td><td class="value-col">85 days full complement at operational ration scale without RAS</td></tr>
+<tr><td class="label-col">RAS Stations</td><td class="value-col">2 × to port; 1 × to starboard; simultaneous fuel and solid stores; VERTREP deck aft</td></tr>
+</table>
+
+<div class="doc-footer">
+  <span>CGB-MOD/NPSD/CVN1/2015-02 — Iss.2.0 — 14 March 2015</span>
+  <span>Secret — Nuclear Sensitive</span>
+  <span>Page 4</span>
+</div>
+</div>
+<div class="classified-footer-strip">Secret — Nuclear Sensitive — CGB-MOD/NPSD/CVN1/2015-02 — Final Concept</div>
+</div>
+
+<!-- ═══════════════════════ SECTION 5 — NUCLEAR PROPULSION ════════ -->
+<div class="page">
+<div class="header-band"></div>
+<div class="gold-band"></div>
+<div class="page-inner">
+<div class="doc-page-header">
+  <span class="hdr-ref">CGB-MOD/NPSD/CVN1/2015-02 — Iss.2.0</span>
+  <span class="hdr-title">CVN-1 &ldquo;Sovereign&rdquo; Class — Final Concept</span>
+  <span class="hdr-final">SECRET — NUC-SENS</span>
+</div>
+
+<h1 class="section-title">Section 5 — Nuclear Propulsion Plant <span style="font-size:8pt;color:var(--red-flag);font-family:'IBM Plex Mono',monospace;font-weight:600;margin-left:3mm;">[NUC-SENS]</span></h1>
+
+<div class="warn-box"><strong>Nuclear Sensitive — Access Restricted:</strong> This section is subject to additional access controls under NPSD/NRSA/001. Circulation is limited to personnel holding SECRET–NUC-SENS clearance. The reactor type, specific power output, fuel enrichment, and refuelling cycle data are not to be extracted from this document.</div>
+
+<h2 class="sub-title">5.1 Reactor Plant — Confirmed Selection</h2>
+<p class="body-text">Following Assessment Phase evaluation of three candidate reactor plant configurations, the A4W pressurised water reactor — as operated by the USN in the Nimitz class — has been selected as the basis for the CVN-1 propulsion plant, subject to a Commonwealth-specific design adaptation programme under joint oversight of NRSA and the designated reactor system designer. Selection was made on the basis of proven operational reliability, the availability of a substantial operational experience base across the Nimitz class fleet, the existence of a mature fuel and maintenance supply chain accessible under AUKUS Technical and Industrial Cooperation arrangements, and the lowest whole-life cost of the three candidates assessed.</p>
+
+<table class="spec-table">
+<tr><th colspan="2" class="gold-hdr">Propulsion Plant — Final Confirmed Parameters [NUC-SENS]</th></tr>
+<tr><td class="label-col">Reactor Type</td><td class="value-col"><span class="confirmed">A4W PWR — CGB-MOD Adaptation (designation: A4W/CGB)</span>; 2 × reactors in independent compartments</td></tr>
+<tr><td class="label-col">Total Propulsion Power</td><td class="value-col"><span class="confirmed">280,000 shp</span> (shaft horsepower) across 4 shafts</td></tr>
+<tr><td class="label-col">Surplus Electrical Generation</td><td class="value-col"><span class="confirmed">250 MW (electrical)</span> — surplus available for ship's systems, EMALS, and future DEW</td></tr>
+<tr><td class="label-col">Propulsion Configuration</td><td class="value-col">4-shaft arrangement; 2 reactors serve 2 shafts each; cross-connect capability for degraded propulsion operations; conventional propellers (5-bladed, 6.5 m diameter, high-skew)</td></tr>
+<tr><td class="label-col">Steering</td><td class="value-col">4 × semi-balanced rudders; bow and stern thrusters for harbour manoeuvring (retractable)</td></tr>
+<tr><td class="label-col">Core Life / Refuelling</td><td class="value-col">Initial core: approximately 20–25 years at projected operational cycle; two refuelling cycles across 50-year hull life</td></tr>
+<tr><td class="label-col">NRSA Safety Case Status</td><td class="value-col"><span class="confirmed">Preliminary Design Safety Case Accepted</span> — NRSA acceptance letter NRSA/CVN1/2015/001 dated 08 Jan 2015</td></tr>
+<tr><td class="label-col">Reactor Compartments</td><td class="value-col">2 × independent reactor compartments, amidships; separated by damage control spaces; shielded by water tanks and structural steelwork to NRSA-specified radiation dose standards at all boundaries</td></tr>
+</table>
+
+<h2 class="sub-title">5.2 Propulsion Resilience &amp; Nuclear Safety Philosophy</h2>
+<p class="body-text">The plant is designed for single-reactor operation at reduced speed in the event of a casualty to either reactor or associated machinery train. Single-reactor operation sustains 22 knots, sufficient for independent transit and continuation of flying operations in all but the most demanding threat environments. Emergency propulsion capability is provided by emergency propulsion motors (EPM) on two shafts, capable of sustaining 8 knots for harbour transit under total main machinery loss.</p>
+<ul class="body-list">
+  <li>Complete physical and system isolation between the two reactor plants; no shared primary circuit components</li>
+  <li>Emergency core cooling and passive shutdown systems compliant with NRSA Generation III+ standards</li>
+  <li>Reactor compartment designed to contain a maximum credible accident without release of radioactive contamination beyond the compartment boundary in any sea state to Beaufort 12</li>
+  <li>Ship's nuclear emergency organisation compliant with NPSD/NRSA/003; dedicated nuclear damage control parties</li>
+  <li>Continuous nuclear safety surveillance by NRSA inspector embarked during operational deployments exceeding 30 days</li>
+</ul>
+
+<div class="doc-footer">
+  <span>CGB-MOD/NPSD/CVN1/2015-02 — Iss.2.0 — 14 March 2015</span>
+  <span>Secret — Nuclear Sensitive</span>
+  <span>Page 5</span>
+</div>
+</div>
+<div class="classified-footer-strip">Secret — Nuclear Sensitive — CGB-MOD/NPSD/CVN1/2015-02 — Final Concept</div>
+</div>
+
+<!-- ═══════════════════════ SECTION 6 — AVIATION ═════════════════ -->
+<div class="page">
+<div class="header-band"></div>
+<div class="gold-band"></div>
+<div class="page-inner">
+<div class="doc-page-header">
+  <span class="hdr-ref">CGB-MOD/NPSD/CVN1/2015-02 — Iss.2.0</span>
+  <span class="hdr-title">CVN-1 &ldquo;Sovereign&rdquo; Class — Final Concept</span>
+  <span class="hdr-final">SECRET — NUC-SENS</span>
+</div>
+
+<h1 class="section-title">Section 6 — Aviation Systems &amp; Air Wing</h1>
+
+<h2 class="sub-title">6.1 Flight Deck — Final Configuration</h2>
+<table class="spec-table">
+<tr><td class="label-col">Deck Configuration</td><td class="value-col"><span class="confirmed">CTOL angled deck, 10° inclination</span> — increased from 9° in Issue 1.0 following USN operational data review; provides improved simultaneous launch and recovery separation</td></tr>
+<tr><td class="label-col">Flight Deck Area</td><td class="value-col"><span class="confirmed">20,300 m²</span></td></tr>
+<tr><td class="label-col">Deck Park Capacity</td><td class="value-col">Up to 36 aircraft in deck park; increases total ready-aircraft capacity above hangar complement</td></tr>
+<tr><td class="label-col">Deck-Edge Elevators</td><td class="value-col">4 × deck-edge elevators; <span class="confirmed">40,000 kg capacity</span> each; position: bow port (E1), fwd starboard (E2), waist port (E3), stern starboard (E4); cycle time ≤55 seconds</td></tr>
+<tr><td class="label-col">Deck Surface</td><td class="value-col">Non-skid non-ferrous coated steel; certified to 600°C jet blast; arrestor cross-deck pendant foundations at AAG positions</td></tr>
+</table>
+
+<h2 class="sub-title">6.2 Electromagnetic Aircraft Launch System (EMALS)</h2>
+<table class="spec-table">
+<tr><td class="label-col">EMALS Tracks</td><td class="value-col"><span class="confirmed">4 tracks</span>: Cat 1 and Cat 2 on bow (parallel, port and starboard of centreline); Cat 3 and Cat 4 on angled deck (angled port)</td></tr>
+<tr><td class="label-col">Launch Weight Range</td><td class="value-col">4,500 kg to 46,000 kg (covers all current types including future heavier UCAV and AEW types)</td></tr>
+<tr><td class="label-col">Sortie Generation Rate</td><td class="value-col"><span class="confirmed">Sustained: 130 sorties/day &nbsp;|&nbsp; 12-hr surge: 175 sorties/day</span></td></tr>
+<tr><td class="label-col">Energy Storage</td><td class="value-col">Linear induction motor energy storage system; charged from nuclear electrical supply; independent 250 MJ storage per track; permits launch without reactor output interruption</td></tr>
+<tr><td class="label-col">EMALS Availability Target</td><td class="value-col">≥97% operational availability per track; concurrent maintenance on non-operational tracks</td></tr>
+</table>
+
+<h2 class="sub-title">6.3 Advanced Arresting Gear (AAG)</h2>
+<table class="spec-table">
+<tr><td class="label-col">Arresting Wires</td><td class="value-col"><span class="confirmed">3 × AAG cross-deck pendants</span>; standard CTOL wire spacing; wire reset ≤40 seconds</td></tr>
+<tr><td class="label-col">Recovery Weight Range</td><td class="value-col">Up to 46,000 kg at maximum approach speed; programmable deceleration profile per aircraft type</td></tr>
+<tr><td class="label-col">Energy Absorption</td><td class="value-col">Water-turbine energy absorbers; significantly lower maintenance than MK7 hydraulic gear; no hydraulic fluid requirement</td></tr>
+</table>
+
+<h2 class="sub-title">6.4 Air Wing — Final Baseline (FOC Configuration)</h2>
+<div class="loadout-grid">
+  <div class="loadout-cell"><div class="lc-label">Strike / Multi-Role Fighter</div><div class="lc-val">36 × 5th-Gen Fighter</div><div class="lc-desc">F-35C or Commonwealth future fighter successor; primary strike and fleet air defence; 5th generation stealth; full integration with ship's CMS for strike tasking and sensor fusion</div></div>
+  <div class="loadout-cell"><div class="lc-label">Airborne Early Warning &amp; Control</div><div class="lc-val">6 × E-2D Advanced Hawkeye</div><div class="lc-desc">CTOL fixed-wing AEW&amp;C; AN/APY-9 radar; battle management and horizon extension; JTIDS datalink; strike group air picture primary sensor beyond ship radar horizon</div></div>
+  <div class="loadout-cell"><div class="lc-label">Electronic Attack</div><div class="lc-val">6 × EA-18G Growler</div><div class="lc-desc">Airborne electronic attack and SEAD; cooperative jamming with ship's EW suite; specific variant subject to alliance procurement; provisional until successor programme matures</div></div>
+  <div class="loadout-cell"><div class="lc-label">Maritime Patrol / ASW Fixed Wing</div><div class="lc-val">6 × MPA Aircraft</div><div class="lc-desc">Fixed-wing maritime patrol and anti-submarine; sonobuoy, MAD, and lightweight torpedo; extends strike group's submarine detection barrier to 400+ nm radius</div></div>
+  <div class="loadout-cell"><div class="lc-label">Anti-Submarine / Utility Rotary</div><div class="lc-val">14 × Merlin HM2 / Successor</div><div class="lc-desc">Maritime ASW, SAR, VERTREP, and special operations insertion; updated dipping sonar and FLASH sonar torpedoes; deck-spotted and hangar-stored; 6 permanently deck-spotted</div></div>
+  <div class="loadout-cell"><div class="lc-label">Unmanned — ISR / Strike (IOC)</div><div class="lc-val">6 → 18 × UCAV/ISR (FOC)</div><div class="lc-desc">Unmanned carrier-launched multi-role; ISR and precision strike missions; initial 6 aircraft at IOC growing to 18 at FOC; full EMALS/AAG compatible; air wing integration via CMS UAS module</div></div>
+  <div class="loadout-cell"><div class="lc-label">Carrier Onboard Delivery (COD)</div><div class="lc-val">2 × COD Aircraft</div><div class="lc-desc">Personnel and priority cargo transfer to and from shore facilities at extended range; CTOL; dual role as fleet tanker in emergency; specific type subject to allied COD programme</div></div>
+  <div class="loadout-cell"><div class="lc-label">Total Normal Air Wing</div><div class="lc-val" style="color:var(--navy);font-size:14pt;">95 aircraft</div><div class="lc-desc">Normal FOC configuration including UCAV; surge to 105+ possible with reduced maintenance margins; hangar accommodates 65 aircraft, remainder deck-spotted</div></div>
+</div>
+
+<div class="doc-footer">
+  <span>CGB-MOD/NPSD/CVN1/2015-02 — Iss.2.0 — 14 March 2015</span>
+  <span>Secret — Nuclear Sensitive</span>
+  <span>Page 6</span>
+</div>
+</div>
+<div class="classified-footer-strip">Secret — Nuclear Sensitive — CGB-MOD/NPSD/CVN1/2015-02 — Final Concept</div>
+</div>
+
+<!-- ═════════════════════ SECTIONS 7 & 8 — COMBAT & SENSORS ═══════ -->
+<div class="page">
+<div class="header-band"></div>
+<div class="gold-band"></div>
+<div class="page-inner">
+<div class="doc-page-header">
+  <span class="hdr-ref">CGB-MOD/NPSD/CVN1/2015-02 — Iss.2.0</span>
+  <span class="hdr-title">CVN-1 &ldquo;Sovereign&rdquo; Class — Final Concept</span>
+  <span class="hdr-final">SECRET — NUC-SENS</span>
+</div>
+
+<h1 class="section-title">Section 7 — Combat Systems &amp; Self-Defence</h1>
+<p class="body-text">The <em>Sovereign</em> class self-defence philosophy is layered, deeply redundant, and makes explicit provision for directed energy close-in defence systems in the growth baseline. The design moves beyond the minimal self-defence approach of the Issue 1.0 dossier following threat assessment updates which identified a materially increased saturation anti-ship missile threat from two peer-competitor states in the priority operational theatres. The ship is not a surface combatant, but must be capable of independent survival against a coordinated multi-axis saturation attack while the air wing is launched or recovered.</p>
+
+<h2 class="sub-title">7.1 Vertical Launch System — Enhanced</h2>
+<table class="spec-table">
+<tr><td class="label-col">Total VLS Cells</td><td class="value-col"><span class="confirmed">96 cells</span> (increased from 64 in Issue 1.0; driven by updated saturation attack modelling)</td></tr>
+<tr><td class="label-col">Forward VLS Battery</td><td class="value-col">48 cells, bow sponson; primary AAW interceptors and supplementary cruise missile defence</td></tr>
+<tr><td class="label-col">Aft VLS Battery</td><td class="value-col">48 cells, stern sponson; split role: AAW and anti-submarine rocket (ASROC-class) capability</td></tr>
+<tr><td class="label-col">Primary Missile (AAW)</td><td class="value-col"><span class="confirmed">CAMM-ER (Extended Range)</span> — confirmed at Issue 2.0; range 45+ km; multiple simultaneous engagements; quad-packed; datalinked terminal guidance</td></tr>
+<tr><td class="label-col">Secondary Missile (ASUW/ASW)</td><td class="value-col">CAMM-ER (surface mode) and ASROC-class ASW torpedo delivery rocket; specific selection subject to weapons system procurement</td></tr>
+<tr><td class="label-col">Cell Flexibility</td><td class="value-col">Mk 41–compatible cold-launch module; growth provision for future long-range interceptors or hypersonic defence systems in mid-life modernisation</td></tr>
+</table>
+
+<h2 class="sub-title">7.2 Close-In Weapon Systems — Revised</h2>
+<table class="spec-table">
+<tr><td class="label-col">Gun CIWS Mounts</td><td class="value-col"><span class="confirmed">6 × Phalanx Block 1B</span> (increased from 4; full-sphere coverage achieved; dual-arc overlap at all critical aspect angles)</td></tr>
+<tr><td class="label-col">Missile CIWS</td><td class="value-col"><span class="confirmed">4 × Sea RAM (RIM-116C)</span> — 21-round rolling airframe missile launchers at fore and aft port/starboard sponsons; engages supersonic sea-skimming and diving missiles</td></tr>
+<tr><td class="label-col">Directed Energy — Future Growth</td><td class="value-col"><span class="badge-growth">GROWTH PROVISION</span> 4 × DEW sponson hardpoints; 15 MW per mount power feed pre-installed; cooling infrastructure pre-installed; structural foundations confirmed at Issue 2.0; laser CIWS installation from mid-life modernisation</td></tr>
+<tr><td class="label-col">Decoy Systems</td><td class="value-col">8 × SRBOC Mk 36 positions; 4 × towed decoy deployment points; DLF active offboard decoy; fully integrated with ESM and CMS for autonomous threat response</td></tr>
+<tr><td class="label-col">Torpedo Defence</td><td class="value-col">2 × torpedo countermeasure systems (towed array-cueing); anti-torpedo torpedo provision in growth baseline; hull-mounted sonar for terminal close-range torpedo detection</td></tr>
+</table>
+
+<h1 class="section-title" style="margin-top:4mm;">Section 8 — Sensors &amp; Electronic Warfare</h1>
+
+<h2 class="sub-title">8.1 Primary Radar — Confirmed</h2>
+<table class="spec-table">
+<tr><td class="label-col">Type / Designation</td><td class="value-col"><span class="confirmed">Dual-band AESA: S-band primary (fore island); X-band fire control / horizon search (aft island)</span></td></tr>
+<tr><td class="label-col">S-Band (Primary Air Search)</td><td class="value-col">4-face fixed active phased array; 600+ km instrumented range; tracks not less than 2,500 simultaneous contacts; integrated air picture cue to VLS fire control</td></tr>
+<tr><td class="label-col">X-Band (Fire Control / Horizon)</td><td class="value-col">2-face fixed array; horizon-search optimised; precision track for CIWS cueing, aircraft recovery, and close-in threat engagement; jam-resistant frequency agile</td></tr>
+<tr><td class="label-col">Track Capacity (combined)</td><td class="value-col"><span class="confirmed">Not less than 3,000 tracks</span>; air, surface, and ballistic threat discrimination</td></tr>
+<tr><td class="label-col">Integration</td><td class="value-col">Full feed to CMS; cooperative engagement cueing to strike group escorts; ATC sub-mode for air wing management</td></tr>
+</table>
+
+<h2 class="sub-title">8.2 Electronic Warfare Suite — Confirmed</h2>
+<table class="spec-table">
+<tr><td class="label-col">ESM / ELINT</td><td class="value-col"><span class="badge-confirmed">CONFIRMED</span> <span class="confirmed">UAT(2) RESM/ESM</span>; wide-band passive intercept; full threat library; bearing and emitter identification; cueing to EW, weapons, and air wing mission planning</td></tr>
+<tr><td class="label-col">ECM / Active Jamming</td><td class="value-col">Shipborne active jamming suite; coordinated with embarked EA aircraft for cooperative electronic attack; precise specification retained at higher classification</td></tr>
+<tr><td class="label-col">RWR</td><td class="value-col">Full-sphere coverage; instantaneous frequency measurement; integrated with CMS and decoy management system; automated response protocol with operator override</td></tr>
+<tr><td class="label-col">Underwater Sensors</td><td class="value-col">Hull-mounted medium-frequency active/passive sonar for self-defence torpedo detection; towed array provision in growth baseline; sonar data fused to ASW air wing tasking module</td></tr>
+</table>
+
+<div class="doc-footer">
+  <span>CGB-MOD/NPSD/CVN1/2015-02 — Iss.2.0 — 14 March 2015</span>
+  <span>Secret — Nuclear Sensitive</span>
+  <span>Page 7</span>
+</div>
+</div>
+<div class="classified-footer-strip">Secret — Nuclear Sensitive — CGB-MOD/NPSD/CVN1/2015-02 — Final Concept</div>
+</div>
+
+<!-- ════════════════ SECTIONS 9 & 10 — UAS & DIGITAL ════════════ -->
+<div class="page">
+<div class="header-band"></div>
+<div class="gold-band"></div>
+<div class="page-inner">
+<div class="doc-page-header">
+  <span class="hdr-ref">CGB-MOD/NPSD/CVN1/2015-02 — Iss.2.0</span>
+  <span class="hdr-title">CVN-1 &ldquo;Sovereign&rdquo; Class — Final Concept</span>
+  <span class="hdr-final">SECRET — NUC-SENS</span>
+</div>
+
+<h1 class="section-title">Section 9 — Unmanned Systems Integration</h1>
+
+<h2 class="sub-title">9.1 Unmanned Carrier-Launched Aircraft (UCLA)</h2>
+<p class="body-text">The <em>Sovereign</em> class is designed from keel to mast as an unmanned-capable carrier. The Assessment Phase confirmed that the EMALS / AAG combination, deck-edge elevator capacity, and hangar infrastructure are fully compatible with current and all projected UCLA types across the 50-year hull life. The UAS integration architecture is defined in the ship's combat management system as a native module, not a retrofit, reflecting the decision taken at Issue 1.3 to treat unmanned operations as a first-class mission rather than a growth provision.</p>
+<table class="spec-table">
+<tr><td class="label-col">IOC UCLA Capability</td><td class="value-col">6 × ISR/light-strike UCLA; supervised autonomous operation; all weapons releases human-in-the-loop at IOC</td></tr>
+<tr><td class="label-col">FOC UCLA Capability</td><td class="value-col"><span class="confirmed">18 × UCLA (mixed ISR, strike, and tanker roles)</span>; includes provision for attritable lower-cost types alongside high-end persistent ISR/strike platforms</td></tr>
+<tr><td class="label-col">Attritable UAS Provision</td><td class="value-col"><span class="badge-growth">NEW AT ISS 2.0</span> 2 × 20-round tube-launch attritable UAS systems in bow sponsons; provides organic counter-drone swarm capability and expendable ISR at short notice without EMALS commitment</td></tr>
+<tr><td class="label-col">UAS Data Links</td><td class="value-col">Redundant SATCOM and line-of-sight UAS control links; UAS operations room integrated within main CIC; segregated UAS mission crew stations</td></tr>
+<tr><td class="label-col">Beyond-Visual-Range Autonomous</td><td class="value-col">Growth provision at FOC+2 for limited autonomous engagement under commander's rules of engagement delegated authority; requires NRSA equivalent legal review and parliamentary authority</td></tr>
+</table>
+
+<h2 class="sub-title">9.2 Mission Bay — Unmanned Surface and Subsurface</h2>
+<table class="spec-table">
+<tr><td class="label-col">Mission Bay Volume</td><td class="value-col"><span class="confirmed">2,800 m³ usable volume</span> (increased from 2,000 m³ at Issue 1.0)</td></tr>
+<tr><td class="label-col">Access</td><td class="value-col">Stern ramp (primary); 2 × waterline ports (secondary); internal crane (15 tonne SWL)</td></tr>
+<tr><td class="label-col">Modular Payload Capability</td><td class="value-col">ISO 20-ft containerised mission systems; USV launch and recovery; UUV maintenance and deployment cradles (12 × UUV); special operations craft (2 × RIB, 2 × submersible)</td></tr>
+<tr><td class="label-col">Special Operations</td><td class="value-col">Dedicated special operations force berthing (120 personnel); lockout/lock-in diving arrangements; decompression chamber; mission planning suite isolated from main CIC</td></tr>
+</table>
+
+<h1 class="section-title" style="margin-top:4mm;">Section 10 — Digital &amp; Network Architecture</h1>
+
+<h2 class="sub-title">10.1 Combat Management System — Final Confirmed</h2>
+<table class="spec-table">
+<tr><td class="label-col">CMS Designation</td><td class="value-col"><span class="confirmed">NAVAL STRIKE NETWORK ARCHITECTURE Mk 3 (NSNA-3)</span> — Commonwealth sovereign-owned CMS; open architecture; MOTS sensors/weapons</td></tr>
+<tr><td class="label-col">Processing Architecture</td><td class="value-col">Distributed processing nodes (no single point of failure); federated data architecture; <span class="confirmed">99.97% availability requirement</span>; hot-standby redundancy throughout</td></tr>
+<tr><td class="label-col">Data Links</td><td class="value-col">Link 16, Link 22, TTNT, CEC, SADL, JREAP-C; <span class="confirmed">not less than 8 simultaneous tactical data links</span>; full NATO interoperability</td></tr>
+<tr><td class="label-col">Cooperative Engagement</td><td class="value-col">Full CEC node; ship may act as fire control for strike group escorts using remote sensor data; carrier acts as strike group combat management node at flag level</td></tr>
+<tr><td class="label-col">Cyber Resilience</td><td class="value-col">Air-gapped combat network; separate administrative IT; hardware-enforced data diodes at all external connection points; post-quantum cryptography baseline throughout; cyber red team assessment required prior to IOC</td></tr>
+<tr><td class="label-col">AI / Decision Support</td><td class="value-col"><span class="badge-growth">GROWTH — FOC+2</span> Machine-learning sensor fusion and threat prioritisation module; AI-assisted air wing scheduling and sortie generation optimisation; human authority over all kinetic decisions retained</td></tr>
+</table>
+
+<div class="doc-footer">
+  <span>CGB-MOD/NPSD/CVN1/2015-02 — Iss.2.0 — 14 March 2015</span>
+  <span>Secret — Nuclear Sensitive</span>
+  <span>Page 8 &amp; 9</span>
+</div>
+</div>
+<div class="classified-footer-strip">Secret — Nuclear Sensitive — CGB-MOD/NPSD/CVN1/2015-02 — Final Concept</div>
+</div>
+
+<!-- ═══════════════════════ SECTION 11 — COST ════════════════════ -->
+<div class="page">
+<div class="header-band"></div>
+<div class="gold-band"></div>
+<div class="page-inner">
+<div class="doc-page-header">
+  <span class="hdr-ref">CGB-MOD/NPSD/CVN1/2015-02 — Iss.2.0</span>
+  <span class="hdr-title">CVN-1 &ldquo;Sovereign&rdquo; Class — Final Concept</span>
+  <span class="hdr-final">SECRET — NUC-SENS</span>
+</div>
+
+<h1 class="section-title">Section 11 — Whole-Life Cost Estimate &amp; Value Engineering <span style="font-size:8pt;color:var(--green-final);font-family:'IBM Plex Mono',monospace;margin-left:3mm;">[NEW]</span></h1>
+
+<p class="body-text">The following cost estimates have been developed by DE&amp;S in conjunction with the Industrial Partnering Team and reviewed by HM Treasury (Major Projects) and the Infrastructure and Projects Authority. All figures are in 2015 outturn prices unless stated. The programme has been subject to a dedicated Value Engineering workstream throughout Assessment Phase, with the objective of delivering the required capability at the minimum credible cost consistent with programme schedule and nuclear safety requirements. The headline conclusion is that the <em>Sovereign</em> class can be delivered at a unit cost approximately 15% below the Gerald R. Ford-class equivalent, primarily through strategic technology choices rather than capability reduction.</p>
+
+<h2 class="sub-title">11.1 Programme Cost Breakdown — Unit Ship (CVN-1)</h2>
+<table class="cost-table">
+<tr><th>Cost Element</th><th>Estimate (£M, 2015 outturn)</th><th>Basis / Comment</th></tr>
+<tr><td>Hull, Mechanical &amp; Engineering (HME)</td><td>£1,850M</td><td>Block construction at 3 yards; final assembly Clyde; steel weight ~68,000 te; competitive tender</td></tr>
+<tr><td>Nuclear Propulsion Plant (NPP) — Reactors ×2</td><td>£1,400M</td><td>A4W/CGB derivative; includes CGB adaptation programme; supply chain via AUKUS framework; principal cost driver for value engineering</td></tr>
+<tr><td>Nuclear Propulsion Plant — BOP &amp; Shafting</td><td>£480M</td><td>Balance of plant, 4 shafts, propellers, gearing; excludes fuel</td></tr>
+<tr><td>EMALS — 4 tracks</td><td>£420M</td><td>EMALS technology license and build; energy storage array; installation; significantly cheaper per track than Ford class due to learning curve and revised procurement</td></tr>
+<tr><td>Advanced Arresting Gear — 3 wires</td><td>£140M</td><td>AAG system including energy absorbers and control systems; installation</td></tr>
+<tr><td>Combat Management System (NSNA-3)</td><td>£620M</td><td>Sovereign-owned CMS development and integration; 8 data link systems; full CEC node; UAS integration module; through-life software authority retained by Crown</td></tr>
+<tr><td>Radar &amp; EW Suite (Dual-band AESA + UAT(2))</td><td>£580M</td><td>S-band and X-band AESA arrays; integration into both islands; ESM / ELINT suite; ECM; RWR; ATC radars; navigation systems</td></tr>
+<tr><td>Weapons Systems (VLS, CIWS, Decoys)</td><td>£310M</td><td>96-cell Mk41-compatible VLS; CAMM-ER missile provision; 6× Phalanx; 4× Sea RAM; decoy systems; torpedo defence; excludes missile warstock</td></tr>
+<tr><td>Aviation Systems (Hangar, Weapons Handling)</td><td>£390M</td><td>Hangar outfitting; 4 deck-edge elevators; automated weapons handling system (AWS); aircraft fuelling system; flight deck lighting; ATC facility</td></tr>
+<tr><td>UAS Integration &amp; Mission Bay</td><td>£180M</td><td>UAS operations room; tube-launch attritable UAS sponsons; mission bay outfitting; USV/UUV handling; special operations facilities</td></tr>
+<tr><td>DEW Growth Provisions (pre-installation)</td><td>£75M</td><td>Structural hardpoints; power feeds (15 MW per mount ×4); cooling infrastructure; future DEW CIWS from mid-life; structural commitment only — no weapon procured</td></tr>
+<tr><td>Habitability, Medical, Command Facilities</td><td>£220M</td><td>Accommodation 5,950 personnel; Role 3 hospital; flag staff suite; SOF facilities</td></tr>
+<tr><td>Platform Services (power, ventilation, damage control)</td><td>£310M</td><td>Ship's electrical distribution; 250MW generation infrastructure; NBCD systems; stability and flooding control</td></tr>
+<tr><td>Integration, Testing &amp; Commissioning</td><td>£680M</td><td>System integration; dockside trials; sea trials; nuclear plant sea proving; EMALS/AAG qualification; flying trials programme</td></tr>
+<tr class="subtotal-row"><td>Sub-total: Platform</td><td>£7,655M</td><td></td></tr>
+<tr><td>Programme Management &amp; Design Authority</td><td>£380M</td><td>Ship Design Authority; NPSD oversight; NRSA engagement and safety case development; nuclear regulatory costs across programme</td></tr>
+<tr><td>Nuclear Regulatory (NRSA) Compliance Costs</td><td>£210M</td><td>Safety case development, independent assessments, NRSA-mandated modifications, operational nuclear inspector costs</td></tr>
+<tr><td>Infrastructure (Yard, Berth, Nuclear Maintenance)</td><td>£440M</td><td>Yard preparation; nuclear-certified dry dock; nuclear maintenance facility at home port; fuel storage; radiological waste management</td></tr>
+<tr><td>Training Pipeline Establishment</td><td>£145M</td><td>Nuclear propulsion training simulator; EMALS/AAG shore trainer; CMS shore training facility; UAS operator training</td></tr>
+<tr class="subtotal-row"><td>Sub-total: Programme &amp; Infrastructure</td><td>£1,175M</td><td></td></tr>
+<tr><td>Risk and Contingency (15%)</td><td>£1,025M</td><td>15% applied to platform sub-total; principal risks: EMALS integration, NRSA timeline, nuclear regulatory delay; IPA-assessed risk rating: AMBER-RED</td></tr>
+<tr class="total-row"><td>TOTAL PROGRAMME COST TO IOC (CVN-1)</td><td>£9,855M</td><td>~£9.9 billion. Excludes: first-of-class reactor fuel load (~£380M, procured separately); Missile warstock (~£620M, operational budget); air wing aircraft procurement (separate programme)</td></tr>
+</table>
+
+<h2 class="sub-title">11.2 Value Engineering — Key Decisions and Savings</h2>
+<p class="body-text">The Assessment Phase Value Engineering programme identified £2.1 billion in savings against the reference design cost without capability reduction. The principal decisions are summarised below:</p>
+<table class="spec-table" style="font-size:8pt;">
+<tr><th>VE Decision</th><th>Saving</th><th>Rationale</th></tr>
+<tr><td class="label-col">A4W derivative over new-design reactor</td><td>~£680M</td><td>Proven design; existing supply chain; AUKUS access to USN operational experience eliminates costly development risk; shorter NRSA safety case timeline</td></tr>
+<tr><td class="label-col">CAMM-ER over ESSM / Standard for VLS</td><td>~£190M</td><td>Commonwealth sovereign missile eliminates US FMS dependency; lower unit cost; quad-pack compatibility allows same cell count to deliver greater magazine depth</td></tr>
+<tr><td class="label-col">DEW as growth provision, not baseline fit</td><td>~£320M</td><td>Technology not mature enough for operational certification by IOC; pre-installation preserves full capability at mid-life at fraction of retrofit cost; avoids technology risk on critical path</td></tr>
+<tr><td class="label-col">Dual-island layout (over single large island)</td><td>~£95M</td><td>Two smaller islands are cheaper per unit than one large island; improved EMI separation eliminates expensive shielding requirements; operational effectiveness gain</td></tr>
+<tr><td class="label-col">Sovereign CMS (NSNA-3) over US CMS</td><td>~£430M (WLC)</td><td>Higher upfront development cost offset by elimination of FMS/ITAR dependency; through-life update at sovereign discretion; estimated £430M saving over 50-year life against US-supplied CMS</td></tr>
+<tr><td class="label-col">Alliance-common AEW, EA, UCAV types</td><td>~£340M</td><td>E-2D, EA-18G, and allied-common UCLA types leverage existing support infrastructure; avoids cost of novel type development; full interoperability with USN and Australian carrier programmes</td></tr>
+</table>
+
+<div class="final-box" style="margin-top:3mm;">
+  <strong>Cost Comparison Context:</strong> The confirmed £9.9 billion whole-programme cost to IOC compares to: USS Gerald R. Ford (CVN-78): approximately £12.8 billion equivalent (2015 prices); HMS Queen Elizabeth (R08, conventional): £3.1 billion (non-nuclear, ski-jump, no EMALS, smaller air wing). The CVN-1 cost premium over the Queen Elizabeth class reflects nuclear propulsion (£1.9 billion), EMALS/AAG (£560 million), and the significantly larger platform (£1.3 billion additional HME). The programme represents a credible and competitive cost for the capability delivered. The Infrastructure and Projects Authority assessment is that the project is Deliverable with Confidence at this estimate.
+</div>
+
+<div class="doc-footer">
+  <span>CGB-MOD/NPSD/CVN1/2015-02 — Iss.2.0 — 14 March 2015</span>
+  <span>Secret — Nuclear Sensitive</span>
+  <span>Pages 10–11</span>
+</div>
+</div>
+<div class="classified-footer-strip">Secret — Nuclear Sensitive — CGB-MOD/NPSD/CVN1/2015-02 — Final Concept</div>
+</div>
+
+<!-- ═══════════════════════ SECTION 12 — ROADMAP ════════════════ -->
+<div class="page">
+<div class="header-band"></div>
+<div class="gold-band"></div>
+<div class="page-inner">
+<div class="doc-page-header">
+  <span class="hdr-ref">CGB-MOD/NPSD/CVN1/2015-02 — Iss.2.0</span>
+  <span class="hdr-title">CVN-1 &ldquo;Sovereign&rdquo; Class — Final Concept</span>
+  <span class="hdr-final">SECRET — NUC-SENS</span>
+</div>
+
+<h1 class="section-title">Section 12 — Capability Roadmap — Updated</h1>
+
+<table class="roadmap-table">
+<tr><th>Phase</th><th>Period</th><th>Key Activities</th><th>Gate / Authority</th></tr>
+<tr>
+  <td class="phase-col phase-done">Phase 0<br>Concept Definition<br><em style="font-size:7pt;color:var(--green-final);">COMPLETE</em></td>
+  <td class="mono">2011 — 2013</td>
+  <td>Finalisation of URD/SRD; nuclear plant concept selection and NRSA engagement; EMALS/AAG technology assessment; contractor pre-qualification; hull form concept studies; US Navy nuclear carrier liaison.</td>
+  <td>Initial Gate (IG) — passed Nov 2013. Treasury approval obtained.</td>
+</tr>
+<tr>
+  <td class="phase-col phase-done">Phase 1<br>Assessment Phase<br><em style="font-size:7pt;color:var(--green-final);">COMPLETE</em></td>
+  <td class="mono">2013 — 2015</td>
+  <td>Preliminary nuclear safety case; EMALS/AAG system demonstrator; ship design authority appointment (Babcock / BMT joint design authority); preliminary hull design frozen; A4W/CGB reactor selection confirmed; Full Business Case developed; NRSA preliminary design safety case accepted Jan 2015.</td>
+  <td>Assessment Review — passed Feb 2015. NRSA PDSC accepted. Main Gate submission package (this document) prepared for March 2015 IAB.</td>
+</tr>
+<tr>
+  <td class="phase-col" style="background:#e8f5ed;"><strong style="color:var(--green-final);">▶ Phase 2<br>Main Gate &amp; Demonstration</strong></td>
+  <td class="mono">2015 — 2017</td>
+  <td>Main Gate IAB approval (target: Q2 2015); contract placement with ship design authority and prime contractors; detailed hull and systems design; nuclear plant design qualification; EMALS shore-based integration trials (JBER, USA); CMS architecture definition; long-lead nuclear component procurement; NRSA design safety case development for acceptance.</td>
+  <td><strong>Main Gate — Secretary of State / IAB approval required. NRSA design safety case acceptance mandatory before steel cut.</strong> Target: Q2 2015.</td>
+</tr>
+<tr>
+  <td class="phase-col">Phase 3<br>Construction</td>
+  <td class="mono">2017 — 2023</td>
+  <td>Block construction at 3 yards (Clyde, Rosyth, Appledore); hull assembly at Rosyth; nuclear plant installation under NRSA-supervised procedures; systems integration; EMALS/AAG installation and dockside trials; initial nuclear fuel loading under NRSA authority; basin trials and undocking. Extended construction period versus Issue 1.0 reflects scale and nuclear qualification requirements.</td>
+  <td>Construction Authority — DE&amp;S / CN. Regular NRSA surveillance. Nuclear fuel loading requires NRSA separate authorisation. Mid-construction gate at frame erection: 2019.</td>
+</tr>
+<tr>
+  <td class="phase-col">Phase 4<br>Sea Trials &amp; Acceptance</td>
+  <td class="mono">2023 — 2025</td>
+  <td>Contractor sea trials (CST) — 12 months; nuclear plant at-sea proving; EMALS/AAG qualification; air wing embarked flying trials; CMS system proving; strike group integration exercises. NRSA at-sea nuclear surveillance. Commonwealth Navy acceptance trials (CNACT). Defect rectification period.</td>
+  <td>Acceptance Board — CGB-MOD / DE&amp;S / CN. NRSA operational nuclear safety case acceptance required before fleet delivery. Target: Q3 2025.</td>
+</tr>
+<tr>
+  <td class="phase-col">Phase 5<br>IOC</td>
+  <td class="mono">Target: Q4 / 2025</td>
+  <td>Commissioning as HMS Sovereign; IOC declaration; air wing workup; strike group integration; crew and air wing training pipeline in production. IOC defined as: ship commissioned; propulsion plant in full service; air wing embarked at 75% complement; all self-defence systems operational; CMS operational; first deterrent deployment planned within 12 months.</td>
+  <td>IOC Declaration — DCNS. Parliamentary statement by Secretary of State for Defence required.</td>
+</tr>
+<tr>
+  <td class="phase-col">Phase 6<br>FOC &amp; Increments</td>
+  <td class="mono">Target: 2027–2030</td>
+  <td>FOC declaration after full air wing integration (95 aircraft including 18 UCLA); completion of UAS integration module FOC; full strike group readiness certification; allied interoperability certification (USN, RAN, RCN). Increment 2 (2028): 4 × DEW CIWS installation; AI-assisted CMS module. Mid-life modernisation (2038–2042): reactor refuelling; hull modernisation; radar upgrade; CMS increment 3.</td>
+  <td>FOC — First Sea Lord. Increment 2 approval — separate programme authority. Mid-life modernisation — subject to future SDSR and IAB approval at the time.</td>
+</tr>
+</table>
+
+<div class="warn-box" style="margin-top:4mm;">
+  <strong>Programme Risk Summary (IPA Assessment — March 2015):</strong> Overall IPA rating: <strong>AMBER-RED</strong>. Principal risks concentrated in: (1) nuclear regulatory timeline — NRSA design safety case acceptance for construction is the single most significant schedule constraint; mitigation via dedicated NRSA liaison team and pre-agreed acceptance criterion framework; (2) EMALS integration — US programme experience demonstrates significant integration risk; mitigation via participation in USN EMALS qualification programme and extended shore-based trials period; (3) industrial capacity — 3-yard construction programme is untested at this scale; mitigation via phased contract placement and yard capacity pre-reservation. A 24-month programme contingency reserve is held against IOC. First Sea Lord has assessed these risks as acceptable given the strategic imperative. Construction start is not to be authorised until NRSA design safety case acceptance is obtained.
+</div>
+
+<div class="doc-footer">
+  <span>CGB-MOD/NPSD/CVN1/2015-02 — Iss.2.0 — 14 March 2015</span>
+  <span>Secret — Nuclear Sensitive</span>
+  <span>Page 12</span>
+</div>
+</div>
+<div class="classified-footer-strip">Secret — Nuclear Sensitive — CGB-MOD/NPSD/CVN1/2015-02 — Final Concept</div>
+</div>
+
+<!-- ════════════════════ ANNEX A — GLOSSARY ══════════════════════ -->
+<div class="page">
+<div class="header-band"></div>
+<div class="gold-band"></div>
+<div class="page-inner">
+<div class="doc-page-header">
+  <span class="hdr-ref">CGB-MOD/NPSD/CVN1/2015-02 — Iss.2.0</span>
+  <span class="hdr-title">CVN-1 &ldquo;Sovereign&rdquo; Class — Final Concept</span>
+  <span class="hdr-final">SECRET — NUC-SENS</span>
+</div>
+
+<h1 class="section-title">Annex A — Glossary of Terms and Abbreviations</h1>
+<div class="two-col" style="margin-top:3mm;">
+<div class="col-block">
+<table class="spec-table" style="font-size:8pt;">
+<tr><td class="label-col" style="width:32%;">A4W/CGB</td><td>A4W Pressurised Water Reactor, Commonwealth of Great Britain Adaptation</td></tr>
+<tr><td class="label-col">AAG</td><td>Advanced Arresting Gear</td></tr>
+<tr><td class="label-col">AESA</td><td>Active Electronically Scanned Array</td></tr>
+<tr><td class="label-col">AEW&amp;C</td><td>Airborne Early Warning and Control</td></tr>
+<tr><td class="label-col">ASW</td><td>Anti-Submarine Warfare</td></tr>
+<tr><td class="label-col">ASROC</td><td>Anti-Submarine Rocket</td></tr>
+<tr><td class="label-col">AUKUS</td><td>Australia – United Kingdom – United States Security Pact</td></tr>
+<tr><td class="label-col">AWS</td><td>Automated Weapons System (handling)</td></tr>
+<tr><td class="label-col">BOP</td><td>Balance of Plant (non-reactor propulsion components)</td></tr>
+<tr><td class="label-col">CAMM-ER</td><td>Common Anti-Air Modular Missile — Extended Range</td></tr>
+<tr><td class="label-col">CEC</td><td>Cooperative Engagement Capability</td></tr>
+<tr><td class="label-col">CGB-MOD</td><td>Commonwealth of Great Britain Ministry of Defence</td></tr>
+<tr><td class="label-col">CIWS</td><td>Close-In Weapon System</td></tr>
+<tr><td class="label-col">CMS</td><td>Combat Management System</td></tr>
+<tr><td class="label-col">COD</td><td>Carrier Onboard Delivery</td></tr>
+<tr><td class="label-col">CTOL</td><td>Conventional Take-Off and Landing</td></tr>
+<tr><td class="label-col">CVN</td><td>Nuclear-Powered Aircraft Carrier (NATO designation)</td></tr>
+<tr><td class="label-col">DCNS</td><td>Deputy Chief of Naval Staff</td></tr>
+<tr><td class="label-col">DE&amp;S</td><td>Defence Equipment &amp; Support</td></tr>
+<tr><td class="label-col">DEC(AW)</td><td>Director Equipment Capability (Above Water)</td></tr>
+<tr><td class="label-col">DEC(CV)</td><td>Director Equipment Capability (Carrier Strike)</td></tr>
+<tr><td class="label-col">DEW</td><td>Directed Energy Weapon</td></tr>
+<tr><td class="label-col">EMALS</td><td>Electromagnetic Aircraft Launch System</td></tr>
+</table>
+</div>
+<div class="col-block">
+<table class="spec-table" style="font-size:8pt;">
+<tr><td class="label-col" style="width:32%;">EMI</td><td>Electromagnetic Interference</td></tr>
+<tr><td class="label-col">EPM</td><td>Emergency Propulsion Motor</td></tr>
+<tr><td class="label-col">ESM</td><td>Electronic Support Measures</td></tr>
+<tr><td class="label-col">EW</td><td>Electronic Warfare</td></tr>
+<tr><td class="label-col">FOC</td><td>Full Operating Capability</td></tr>
+<tr><td class="label-col">FMS</td><td>Foreign Military Sales (US government programme)</td></tr>
+<tr><td class="label-col">FSL</td><td>First Sea Lord</td></tr>
+<tr><td class="label-col">IAB</td><td>Investment Approvals Board</td></tr>
+<tr><td class="label-col">IG</td><td>Initial Gate (acquisition decision point)</td></tr>
+<tr><td class="label-col">IOC</td><td>Initial Operating Capability</td></tr>
+<tr><td class="label-col">IPA</td><td>Infrastructure and Projects Authority</td></tr>
+<tr><td class="label-col">ISR</td><td>Intelligence, Surveillance and Reconnaissance</td></tr>
+<tr><td class="label-col">ITAR</td><td>International Traffic in Arms Regulations (US)</td></tr>
+<tr><td class="label-col">MG</td><td>Main Gate (acquisition decision point)</td></tr>
+<tr><td class="label-col">MOTS</td><td>Military Off-The-Shelf</td></tr>
+<tr><td class="label-col">NBCD</td><td>Nuclear, Biological, Chemical and Damage Control</td></tr>
+<tr><td class="label-col">NPSD</td><td>Naval Procurement &amp; Systems Directorate</td></tr>
+<tr><td class="label-col">NRSA</td><td>Nuclear Regulatory and Safety Authority</td></tr>
+<tr><td class="label-col">NSNA-3</td><td>Naval Strike Network Architecture Mk 3 (CMS designation)</td></tr>
+<tr><td class="label-col">NUC-SENS</td><td>Nuclear Sensitive (protective marking)</td></tr>
+<tr><td class="label-col">PDSC</td><td>Preliminary Design Safety Case (nuclear)</td></tr>
+<tr><td class="label-col">PWR</td><td>Pressurised Water Reactor</td></tr>
+<tr><td class="label-col">RAS</td><td>Replenishment at Sea</td></tr>
+<tr><td class="label-col">RIB</td><td>Rigid Inflatable Boat</td></tr>
+<tr><td class="label-col">RWR</td><td>Radar Warning Receiver</td></tr>
+<tr><td class="label-col">SDSR</td><td>Strategic Defence and Security Review</td></tr>
+<tr><td class="label-col">SEAD</td><td>Suppression of Enemy Air Defences</td></tr>
+<tr><td class="label-col">Sea RAM</td><td>RIM-116 Rolling Airframe Missile (shipborne launcher)</td></tr>
+<tr><td class="label-col">SofS(D)</td><td>Secretary of State for Defence</td></tr>
+<tr><td class="label-col">SOF</td><td>Special Operations Forces</td></tr>
+<tr><td class="label-col">TTNT</td><td>Tactical Targeting Network Technology</td></tr>
+<tr><td class="label-col">UCAV / UCLA</td><td>Unmanned Combat Air Vehicle / Unmanned Carrier-Launched Aircraft</td></tr>
+<tr><td class="label-col">UUV</td><td>Unmanned Underwater Vehicle</td></tr>
+<tr><td class="label-col">USV</td><td>Unmanned Surface Vehicle</td></tr>
+<tr><td class="label-col">VE</td><td>Value Engineering</td></tr>
+<tr><td class="label-col">VERTREP</td><td>Vertical Replenishment</td></tr>
+<tr><td class="label-col">VLS</td><td>Vertical Launch System</td></tr>
+<tr><td class="label-col">WLC</td><td>Whole-Life Cost</td></tr>
+</table>
+</div>
+</div>
+
+<div class="final-box" style="margin-top:5mm;">
+  <strong>End of Document — CGB-MOD/NPSD/CVN1/2015-02 Issue 2.0 — Final Concept</strong><br>
+  This document is classified SECRET — NUCLEAR SENSITIVE. It contains information exempt from disclosure under the Commonwealth Freedom of Information Act 2000, sections 23 (national security) and 24 (defence). It is to be handled in accordance with protective marking S-NPSD-NUC. It shall not be reproduced or disclosed without the written authority of the Naval Procurement &amp; Systems Directorate. Sections containing reactor design parameters, power output, and fuel data are additionally controlled under NPSD/NRSA/001 and are subject to access restrictions that override normal SECRET handling procedures. This document constitutes an approved final concept baseline and the primary Main Gate submission document. Approval to proceed with construction requires separate Secretary of State and Treasury authorisation.
+</div>
+
+<div style="display:flex;justify-content:space-between;align-items:center;margin-top:4mm;padding-top:3mm;border-top:1.5px solid var(--navy);">
+  <div>
+    <div style="font-size:8pt;font-weight:700;color:var(--navy);font-family:'IBM Plex Mono',monospace;letter-spacing:0.06em;">AUTHORISATION</div>
+    <div style="font-size:8pt;color:var(--text-muted);font-family:'IBM Plex Mono',monospace;margin-top:1mm;">T. Reeve, Director NPSD &nbsp;|&nbsp; Signature: ___________</div>
+    <div style="font-size:8pt;color:var(--text-muted);font-family:'IBM Plex Mono',monospace;margin-top:1mm;">Admiral Sir J. Hartley, First Sea Lord &nbsp;|&nbsp; Signature: ___________</div>
+    <div style="font-size:8pt;color:var(--text-muted);font-family:'IBM Plex Mono',monospace;margin-top:1mm;">Secretary of State for Defence &nbsp;|&nbsp; Signature: ___________</div>
+  </div>
+  <div style="text-align:right;">
+    <div style="font-size:7pt;color:var(--text-muted);font-family:'IBM Plex Mono',monospace;line-height:1.7;">
+      Date: 14 March 2015<br>
+      Document Ref: CGB-MOD/NPSD/CVN1/2015-02<br>
+      Page 14 — End of Document
+    </div>
+  </div>
+</div>
+
+<div class="doc-footer" style="margin-top:2mm;">
+  <span>CGB-MOD/NPSD/CVN1/2015-02 — Iss.2.0 — 14 March 2015</span>
+  <span>Secret — Nuclear Sensitive</span>
+  <span>Page 13–14 — End of Document</span>
+</div>
+</div>
+<div class="classified-footer-strip">Secret — Nuclear Sensitive — CGB-MOD/NPSD/CVN1/2015-02 — Final Concept</div>
+</div>
+
+</body>
+</html>
